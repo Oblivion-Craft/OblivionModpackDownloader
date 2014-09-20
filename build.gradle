@@ -1,8 +1,42 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
+apply plugin: 'maven'
 
 group = 'oblivionmodpack.downloader'
 version = '1.0.1'
 mainClassName = 'oblivionmodpack.downloader.ModpackDownloader'
 archivesBaseName = 'OblivionModpackDownloader-'
+
+configurations {
+    deployerJars
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
+}
+
+task writeNewPom << {
+    pom {
+        project {
+            inceptionYear '2014'
+            licenses {
+                license {
+                    name 'GNU LGPL version 3'
+                    url 'http://www.gnu.org/licenses/lgpl.html'
+                    distribution 'repo'
+                }
+            }
+        }
+    }.writeTo("$buildDir/pom.xml")
+}
+
+jar {
+    manifest {
+        attributes("Main-Class": "oblivionmodpack.downloader.ModpackDownloader")
+    }
+}
