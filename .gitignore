@@ -1,22 +1,22 @@
-# gradle
-.gradle
-build
-gradle-app.setting
+## gradle
+/.gradle
+/build
 
-# GMCP plugin
-/minecraft
+## ForgeGradle
+/run
 
-# eclipse
-.settings
-.metadata
-.classpath
-.project
-bin
+## eclipse
+/eclipse
+/.settings
+/.metadata
+/.classpath
+/.project
+/bin
 
-# intellij
-out
-*.idea
-*.iml
-*.ips
-*.iws
-
+## intellij
+/out
+/.idea
+/*.iml
+/*.ipr
+/*.iws
+/atlassian-ide-plugin.xml
