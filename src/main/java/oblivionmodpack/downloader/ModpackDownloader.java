@@ -1,5 +1,7 @@
 package oblivionmodpack.downloader;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.net.URL;
@@ -15,21 +17,27 @@ import java.util.logging.Logger;
 */
 public class ModpackDownloader 
 {
-    /**
+    public static void createAndShowGui()
+    {
+        JFrame frame = new JFrame("Oblivion Modpack Downloader");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JLabel emptyLabel = new JLabel("");
+        emptyLabel.setPreferredSize(new Dimension(720, 512));
+        frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
+
+        frame.pack();
+        frame.setVisible(true);
+    }
+
     public static void main(String[] args)
     {
-        try
+        javax.swing.SwingUtilities.invokeLater(new Runnable()
         {
-            URL website = new URL("http://bit.ly/CutenessFrickingOverloadPowerOver9000");
-            ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-            FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir") + "\\CatsAreCute.jpg");
-            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-            System.out.println("Successfully downloaded the Cutest Picture Ever!");
-        }catch(Exception e){
-            System.out.println(e);
-        }
-
+            public void run()
+            {
+                createAndShowGui();
+            }
+        });
     }
-     **/
-
 }
