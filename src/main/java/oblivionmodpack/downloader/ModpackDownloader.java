@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 */
 public class ModpackDownloader 
 {
+    /**
     public static void main(String[] args)
     {
         try
@@ -29,4 +30,6 @@ public class ModpackDownloader
         }
 
     }
+     **/
+
 }
